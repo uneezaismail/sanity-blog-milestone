@@ -1,5 +1,6 @@
 import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -19,9 +20,10 @@ const HeroStock1 = async () => {
   return (
     <Link href={`/blogsdetail/${fetchstock1.slug.current}`}>
     <div className="relative h-full border">
-           <img
+           <Image
              src={urlFor(fetchstock1.image).url()}
              alt={fetchstock1.title}
+             fill
              className="w-full h-full object-cover"
            />
            

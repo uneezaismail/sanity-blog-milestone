@@ -1,5 +1,4 @@
 import { urlFor } from "@/sanity/lib/image";
-import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 import RenderBodyContent from "@/components/renderBodyContent";
 import SubscriptionCard from "@/components/SubscriptionCard";
