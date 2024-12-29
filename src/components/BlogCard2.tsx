@@ -12,7 +12,7 @@ export interface Blog {
     };
   };
   category: { title: string };
-  publishedAt: string;
+ date:string;
   slug: {
     current: string;
   };
@@ -41,7 +41,7 @@ const BlogCard2 = ({ blog }: { blog: Blog }) => {
         </p>
         <h2 className="text-xl sm:text-2xl md:text-2xl font-semibold mt-3">{blog.title}</h2>
         <p className="text-xs text-gray-700 mt-1">
-          {blog.author.authorName} &nbsp;&bull;&nbsp; {new Date(blog.publishedAt).toDateString()}
+          {blog.author.authorName} &nbsp;&bull;&nbsp; {blog.date}
         </p>
         <p className="text-md text-gray-800 mt-4 line-clamp-2">
           {/* {truncatedDescription}  */}

@@ -12,25 +12,10 @@ interface Params {
 }
 
 const SingleBlogPage = async ({ params }: { params: Promise<Params> }) => {
-  // Fetch the blog by slug using async logic
+ 
   const resolvedParams = await params; 
   const blog = await getPostBySlug(resolvedParams.slug);
-  // const blog = await client.fetch(
-  //   `*[_type == "blogpost" && slug.current == $slug][0]{
-  //     title,
-  //     slug,
-  //     image,
-  //     author->{
-  //       authorName
-  //     },
-  //     publishedAt,
-  //     longPost,
-  //     category->{
-  //       title
-  //     }
-  //   }`,
-  //   { slug: params.slug }
-  // );
+ 
 
   if (!blog) {
     return <div>Blog not found</div>;
@@ -50,7 +35,7 @@ const SingleBlogPage = async ({ params }: { params: Promise<Params> }) => {
       </div>
       <h1 className="text-3xl md:text-4xl text-black font-bold mb-4">{blog.title}</h1>
       <p className=" mb-6">
-        By <span className="text-emerald-700 font-semibold"> {blog.author.authorName}</span> on {new Date(blog.publishedAt).toDateString()}
+        By <span className="text-emerald-700 font-semibold"> {blog.author.authorName}</span> on <span className="text-black">2024-12-24</span> 
       </p>
      <article className="prose lg:prose-xl">
       <RenderBodyContent post={blog} /> </article>

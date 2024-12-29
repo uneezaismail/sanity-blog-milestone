@@ -11,6 +11,7 @@ interface BlogCardProps {
           _type: string; 
         };
     }
+    date:string;
     category: {title:string};
     publishedAt: string;
     slug: {
@@ -30,7 +31,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
         <div className="flex flex-col gap">
       <span className="text-xs text-white bg-gray-700 px-1 w-fit">{blog.category.title}</span>
       <h3 className="text-md text-lg text-slate-900 md:text-md lg:text-xl font-bold">{blog.title}</h3>
-      <p className="text-sm text-gray-400">{blog.publishedAt}</p>     
+      <p className="text-sm text-gray-400">{blog.date}</p>     
     </div>
     </div>
     

@@ -14,6 +14,7 @@ const Posts = async () => {
         author->{
           authorName
         },
+        date,
          publishedAt,
         category->{
           title

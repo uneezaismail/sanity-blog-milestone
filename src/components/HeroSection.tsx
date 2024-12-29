@@ -14,6 +14,7 @@ interface Blog {
         _type: string; 
       };
   }
+  date:string;
   category: {title:string};
   publishedAt: string;
   slug: {
@@ -30,6 +31,7 @@ const HeroSection = async() => {
         author->{
           authorName
         },
+        date,
         publishedAt,
         category->{
           title
