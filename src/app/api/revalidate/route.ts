@@ -9,6 +9,10 @@ export async function POST(req: NextRequest) {
       slug?: string | undefined;
     }>(req, process.env.SANITY_HOOK_SECRET);
 
+
+    console.log("Incoming Webhook Body:", body);
+    console.log("Signature Valid:", isValidSignature);
+    
     if (!isValidSignature) {
       return new Response("Invalid Signature", { status: 401 });
     }
