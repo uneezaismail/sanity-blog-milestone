@@ -1,7 +1,6 @@
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import RenderBodyContent from "@/components/renderBodyContent";
-import SubscriptionCard from "@/components/SubscriptionCard";
 import CommentsSection from "@/components/commentSection";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
