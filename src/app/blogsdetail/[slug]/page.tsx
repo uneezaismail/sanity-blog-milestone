@@ -6,7 +6,7 @@ import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 import { getPostBySlug } from "@/sanity/schemaTypes/fetch";
 
-interface Params {
+export interface Params {
   slug: string;
 }
 

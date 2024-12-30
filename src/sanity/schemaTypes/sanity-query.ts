@@ -1,19 +1,21 @@
 // Query for all posts
 export const postQuery = `
-  *[_type == "blogpost"]{
-    title,
-    slug,
-    image,
-    author->{
-      authorName
-    },
-    date,
-    publishedAt,
-    longPost,
-    category->{
-      title
+  *[_type == "category"]{
+      title,
+      "posts": *[_type == "blogpost" && references(^._id)]{
+        title,
+        slug,
+        image,
+        author->{
+          authorName
+        },
+        date,
+         publishedAt,
+        category->{
+          title
+        }
+      }
     }
-  }
 `;
 
 // Query for post by slug

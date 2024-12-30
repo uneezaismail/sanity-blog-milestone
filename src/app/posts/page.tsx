@@ -1,27 +1,11 @@
 import BlogCard2 from '@/components/BlogCard2';
-import { client } from '@/sanity/lib/client';
+import { getPosts } from '@/sanity/schemaTypes/fetch';
 import React from 'react';
 
 const Posts = async () => {
   // Fetch categories and related posts
-  const fetchCategories = await client.fetch(`
-    *[_type == "category"]{
-      title,
-      "posts": *[_type == "blogpost" && references(^._id)]{
-        title,
-        slug,
-        image,
-        author->{
-          authorName
-        },
-        date,
-         publishedAt,
-        category->{
-          title
-        }
-      }
-    }
-  `);
+
+  const fetchCategories: any = await getPosts();
 
   return (
     <div className="my-10 container mx-auto px-4 lg:px-0">
