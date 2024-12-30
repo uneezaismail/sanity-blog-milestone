@@ -8,7 +8,7 @@ const blog = {
       title: "Title",
       type: "string",
       description: "The title of the blog post.",
-      validation: (Rule: any) => Rule.required(),  // Add required validation for title
+      validation: (Rule: any) => Rule.required(), // Add required validation for title
     },
     {
       name: "slug",
@@ -30,7 +30,7 @@ const blog = {
             fields?.current !== fields?.current?.toLowerCase() ||
             fields?.current.split(" ").includes("")
           ) {
-            return "Slug must be lowercase and not be included space";
+            return "Slug must be lowercase and not include spaces";
           }
           return true;
         }),
@@ -43,7 +43,7 @@ const blog = {
         hotspot: true,
       },
       description: "The main image of the blog post.",
-      validation: (Rule: any) => Rule.required(),  // Add validation for image
+      validation: (Rule: any) => Rule.required(), // Add validation for image
     },
     {
       name: "longPost",
@@ -51,21 +51,21 @@ const blog = {
       type: "array",
       of: [{ type: "block" }],
       description: "The long content of the blog post.",
-      validation: (Rule: any) => Rule.required(),  // Ensure content is required
+      validation: (Rule: any) => Rule.required(), // Ensure content is required
     },
     {
       name: "author",
       title: "Author",
       type: "reference",
       to: [{ type: "author" }],
-      validation: (Rule: any) => Rule.required(),  // Make author a required field
+      validation: (Rule: any) => Rule.required(), // Make author a required field
     },
     {
       name: "date",
       title: "Date",
       type: "date",
       description: "The publish date of the blog post.",
-      validation: (Rule: any) => Rule.required(),  // Make date required
+      validation: (Rule: any) => Rule.required(), // Make date required
     },
     {
       name: "category",
@@ -73,8 +73,30 @@ const blog = {
       type: "reference",
       to: [{ type: "category" }],
       description: "The category this blog post belongs to.",
-      validation: (Rule: any) => Rule.required(),  // Make category a required field
+      validation: (Rule: any) => Rule.required(), // Make category a required field
     },
+    {
+			name: "tags",
+			title: "Tags",
+			type: "array",
+			validation: (Rule: any) => Rule.required(),
+			of: [
+				{
+					type: "string",
+					validation: (Rule: any) =>
+						Rule.custom((fields: any) => {
+							if (
+								fields !== fields.toLowerCase() ||
+								fields.split(" ").includes("")
+							) {
+								return "Tags must be lowercase and not be included space";
+							}
+							return true;
+						}),
+				},
+			],
+		},
   ],
 };
+
 export default blog;

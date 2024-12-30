@@ -7,12 +7,15 @@ export const client = createClient(clientConfig);
 export async function sanityFetch<QueryResponse>({
   query,
   qParams,
+  tags,
 }: {
   query: string;
   qParams: QueryParams;
+  tags: string[];
 }): Promise<QueryResponse> {
   return client.fetch<QueryResponse>(query, qParams, {
-    cache: "force-cache",  // Apply force-cache
+    cache: "force-cache", 
+    next: { tags },
   });
 }
 
@@ -21,6 +24,7 @@ export const getPosts = async () => {
   const data = await sanityFetch({
     query: postQuery,
     qParams: {},
+    tags: ["blogpost", "author", "category"],
   });
   return data;
 };
@@ -30,6 +34,7 @@ export const getPostBySlug = async (slug: string) => {
   const data:any = await sanityFetch({
     query: postQueryBySlug,
     qParams: { slug },
+    tags: ["blogpost", "author", "category"],
   });
 
   return data;
