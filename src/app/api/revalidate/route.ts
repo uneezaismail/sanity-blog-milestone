@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
 
     console.log("Incoming Webhook Body:", body);
     console.log("Signature Valid:", isValidSignature);
-    
+
     if (!isValidSignature) {
       return new Response("Invalid Signature", { status: 401 });
     }
@@ -21,6 +21,7 @@ export async function POST(req: NextRequest) {
       return new Response("Bad Request", { status: 400 });
     }
 
+    console.log("Revalidating cache for:", body._type);
     revalidateTag(body._type);
     return NextResponse.json({
       status: 200,
