@@ -3,8 +3,8 @@ import { FaTelegramPlane } from 'react-icons/fa'
 
 const SubscriptionCard = () => {
   return (
-    <div className='my-10 md:mt-16 border flex flex-col  lg:flex-row gap-4 justify-center items-center lg:justify-between border-black p-4 lg:p-8'>
-          <div className='flex flex-col justify-center items-center lg:items-start gap-2 lg:flex-row'>
+    <div className='mt-10 md:my-10 max-w-6xl mx-auto md:mt-16 border flex flex-col  md:flex-row gap-4 justify-center items-center md:justify-between border-black m-1 p-4 lg:p-8'>
+          <div className='flex flex-col justify-center items-center md:items-start gap-2 md:flex-row'>
             <span><FaTelegramPlane size={35} className='text-slate-900' /></span>
             <div className='space-2 md:space-y-4'>
                 <h4 className='text-2xl text-center md:text-3xl text-slate-900 font-bold '>Sign Up for newletters</h4>

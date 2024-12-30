@@ -19,8 +19,15 @@ const blog = {
           slugify: (input:string) => input
           .toLowerCase()
           .replace(/\s+/g, '-')
-          .slice(0, 200)
-        },
+          .slice(0, 96)
+        }, 
+        validation: (Rule: any) =>
+          Rule.required().custom((fields: any) => {
+            if (fields?.current !== fields?.current?.toLowerCase() || fields?.current.includes(" ")) {
+              return "Slug must be lowercase and not include spaces";
+            }
+            return true;
+          }),
       },
       {
         name: "image",

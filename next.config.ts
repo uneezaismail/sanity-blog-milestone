@@ -5,8 +5,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         
-        hostname: 'cdn.sanity.io',
-        
+        hostname: 'cdn.sanity.io',       
         pathname: '**',
         
       },

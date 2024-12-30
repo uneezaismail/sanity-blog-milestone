@@ -12,9 +12,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-xl font-semibold mb-2">About</h4>
             <p className="text-md text-gray-500">
-              Turpis erat tincidunt et viverra id nunc molestie et faucibus
-              diam, proin lectus aliquam mattis ac nunc elementum accumsan
-              libero.
+            We are committed to delivering innovative solutions and high-quality services that meet the evolving needs of our users.
             </p>
           </div>
 

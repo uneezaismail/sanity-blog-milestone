@@ -19,7 +19,7 @@ const HeroStock1 = async () => {
       
   return (
     <Link href={`/blogsdetail/${fetchstock1.slug.current}`}>
-    <div className="relative h-full border">
+    <div className="relative w-full h-[300px] md:h-full border">
            <Image
              src={urlFor(fetchstock1.image).url()}
              alt={fetchstock1.title}

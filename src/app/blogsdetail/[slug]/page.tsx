@@ -22,8 +22,9 @@ const SingleBlogPage = async ({ params }: { params: Promise<Params> }) => {
   }
 
   return (
-    <div className="my-4 md:mt-10 p-4 max-w-6xl mx-auto">
-        
+   
+    <div className="my-4 md:mt-10  p-4 max-w-5xl mx-auto">
+     
       <div className="relative w-full h-72 md:h-96 mb-6">
         <Image
           src={urlFor(blog.image).url()}
@@ -43,8 +44,9 @@ const SingleBlogPage = async ({ params }: { params: Promise<Params> }) => {
       <div className="flex w-full items-center justify-center">
     <Link href={"/"}><button className="text-purple-900 font-xs flex gap-2 items-center pt-6"> <span><FaArrowLeft/></span>back to home</button></Link>  
     </div>
-      <SubscriptionCard/>  
     </div>
+   
+    
   );
 };
 
