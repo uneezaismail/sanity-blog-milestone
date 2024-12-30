@@ -1,8 +1,9 @@
-import { QueryParams } from "next-sanity";
+import { createClient, QueryParams } from "next-sanity";
 import { postQuery, postQueryBySlug } from "./sanity-query";
-import { client } from "../lib/client";
+import clientConfig from "@/sanity/config/client-config";
 
 // Centralized fetch function
+export const client = createClient(clientConfig);
 export async function sanityFetch<QueryResponse>({
   query,
   qParams,
